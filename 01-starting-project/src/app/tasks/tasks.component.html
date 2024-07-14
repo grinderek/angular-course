@@ -1,1 +1,20 @@
-<h2>{{ user.name }}'s tasks:</h2>
+@if (isNewTaskFormVisible) {
+  <app-new-task (closed)="onNewTaskClosed()" [user]="user"></app-new-task>
+}
+
+<section id="tasks">
+  <header>
+    <h2>{{ user.name }}'s Tasks</h2>
+    <menu>
+      <button (click)="onAddTaskClick()">Add Task</button>
+    </menu>
+  </header>
+
+  <ul>
+    @for (task of userTasks; track task.id) {
+      <li>
+        <app-task [task]="task"></app-task>
+      </li>
+    }
+  </ul>
+</section>

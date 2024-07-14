@@ -19,7 +19,7 @@ interface User {
 })
 export class AppComponent {
   users = DUMMY_USERS;
-  selectedUser? = this.users[0] as User;
+  selectedUser?: User;
 
   onSelectUser(id: string) {
     console.log('User selected:', id);
